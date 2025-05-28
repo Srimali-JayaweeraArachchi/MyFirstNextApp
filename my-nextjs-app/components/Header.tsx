@@ -1,9 +1,11 @@
+'use client'
+
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 const Header: React.FC = () => {
-  const router = useRouter();
+  const pathname = usePathname();
 
   const navItems = [
     { name: 'Home', href: '/' },
@@ -13,10 +15,10 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-white shadow-md sticky top-0 z-50">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-primary">
+          <Link href="/" className="text-2xl font-bold text-primary hover:text-blue-600 transition-colors">
             MyApp
           </Link>
           
@@ -26,8 +28,8 @@ const Header: React.FC = () => {
                 <Link
                   href={item.href}
                   className={`hover:text-primary transition-colors ${
-                    router.pathname === item.href
-                      ? 'text-primary font-semibold'
+                    pathname === item.href
+                      ? 'text-primary font-semibold border-b-2 border-primary pb-1'
                       : 'text-gray-700'
                   }`}
                 >
