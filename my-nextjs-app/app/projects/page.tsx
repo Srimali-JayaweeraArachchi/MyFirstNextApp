@@ -57,39 +57,54 @@ export default function Projects() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Our Projects</h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-          A showcase of applications built with modern web technologies, 
-          demonstrating best practices and innovative solutions.
-        </p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* Hero Section */}
+      <div className="relative overflow-hidden bg-white/80 backdrop-blur-sm border-b border-gray-200/50">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-indigo-600/5"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <div className="text-center max-w-3xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent mb-6">
+              Our Projects
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+              A showcase of applications built with modern web technologies,
+              demonstrating best practices and innovative solutions.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            title={project.title}
-            description={project.description}
-            technologies={project.technologies}
-            link={project.link}
-          />
-        ))}
+      {/* Projects Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <ProjectCard 
+              key={project.id} 
+              {...project}
+            />
+          ))}
+        </div>
       </div>
 
-      <div className="text-center mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-12">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Have a Project in Mind?</h2>
-        <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-          Want to see more projects, collaborate with us, or discuss your next big idea? 
-          We'd love to hear from you and explore how we can help bring your vision to life.
-        </p>
-        <a
-          href="/contact"
-          className="btn-primary inline-block"
-        >
-          Start a Conversation
-        </a>
+      {/* CTA Section */}
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-700"></div>
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+            Have a Project in Mind?
+          </h2>
+          <p className="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Want to see more projects, collaborate with us, or discuss your next big idea?
+            We'd love to hear from you and explore how we can help bring your vision to life.
+          </p>
+          <button className="inline-flex items-center px-8 py-4 text-lg font-semibold text-blue-600 bg-white rounded-full hover:bg-gray-50 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
+            Start a Conversation
+            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );
