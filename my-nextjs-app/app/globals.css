@@ -1,7 +1,9 @@
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* 
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -20,4 +22,4 @@
   .btn-secondary {
     @apply bg-secondary text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors duration-200;
   }
-}
+} */
